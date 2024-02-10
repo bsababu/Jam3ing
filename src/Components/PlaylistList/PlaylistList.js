@@ -10,15 +10,15 @@ class PlaylistList extends React.Component {
             PlaylistLists: [Spotify.getUserPlaylists],
         }
     }
-    componentWillMount() {
+    UNSAFE_componentWillMount() {
         Spotify.getUserPlaylists();
     }
     render() {
         return (
             <div className="Playlist">
                 <label>MY playlists</label>
-                {this.state.playlistLists.map(names => {
-                    return <PlaylistListItem names={names} key={names.id} onSelect={this.props.selectedPlaylist}/>
+                {this.state.PlaylistLists.map(names => {
+                    return <PlaylistListItem names={names} key={this.props.id} onSelect={this.props.selectedPlaylist}/>
                 })}
             </div>
         );
